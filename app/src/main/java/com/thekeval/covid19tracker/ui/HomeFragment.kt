@@ -20,6 +20,7 @@ class HomeFragment: Fragment() {
         binding = FragmentHomeBinding.inflate(inflater)
 
 
+
         return binding.root
     }
 
