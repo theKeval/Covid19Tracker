@@ -13,7 +13,7 @@ import kotlinx.coroutines.withContext
 
 class CovidRepository(private val database: CovidDatabase) {
 
-    val summary: LiveData<List<DomainModel>> = Transformations.map(database.covidDao.getSummary()) {
+    val summaries: LiveData<List<DomainModel>> = Transformations.map(database.covidDao.getSummary()) {
         it.asDomainModel()
     }
 
