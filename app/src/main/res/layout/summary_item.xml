@@ -10,9 +10,9 @@
             name="summary"
             type="com.thekeval.covid19tracker.domain.DomainModel" />
 
-<!--        <variable-->
-<!--            name="summaryCallback"-->
-<!--            type="com.thekeval.covid19tracker." />-->
+        <variable
+            name="summaryCallback"
+            type="com.thekeval.covid19tracker.ui.SummaryClicked" />
 
     </data>
 
