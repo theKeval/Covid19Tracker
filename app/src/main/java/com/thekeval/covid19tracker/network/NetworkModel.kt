@@ -49,7 +49,7 @@ fun NetworkModel.asGlobalSummary(): GlobSum {
     )
 }
 
-fun List<Summary>.asDbSummary(): List<DbSummary> {
+fun List<Summary>.asDbSummary(): Array<DbSummary> {
     return map {
         DbSummary(
             Id = it.Id,
@@ -64,5 +64,5 @@ fun List<Summary>.asDbSummary(): List<DbSummary> {
             TotalRecovered = it.TotalRecovered,
             Date = it.Date
         )
-    }
+    }.toTypedArray()
 }
