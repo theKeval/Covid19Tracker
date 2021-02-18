@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
+@Dao
 interface CovidDao {
     
     @Query("select * from DbSummary")
@@ -13,7 +14,7 @@ interface CovidDao {
     fun insertAll(vararg summary: DbSummary)
 }
 
-@Database(entities = [DbModel::class, DbSummary::class, GlobSum::class], version = 1)
+@Database(entities = [DbSummary::class], version = 1)   // DbModel::class, GlobSum::class
 abstract class CovidDatabase: RoomDatabase() {
     abstract val covidDao: CovidDao
 }

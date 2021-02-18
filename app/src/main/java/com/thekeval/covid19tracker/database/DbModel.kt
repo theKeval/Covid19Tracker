@@ -5,27 +5,27 @@ import androidx.room.PrimaryKey
 import com.squareup.moshi.JsonClass
 import com.thekeval.covid19tracker.domain.DomainModel
 
-@Entity
-data class DbModel(
-    @PrimaryKey
-    val Id: String,
-    val Message: String,
-    // val Global: GlobSum,
-    // val Countries: List<DbSummary>
-)
-
-@Entity
-data class GlobSum(
-    @PrimaryKey
-    val DbModelId: String,
-    val NewConfirmed: Int,
-    val TotalConfirmed: Int,
-    val NewDeaths: Int,
-    val TotalDeaths: Int,
-    val NewRecovered: Int,
-    val TotalRecovered: Int,
-    val Date: String
-)
+//@Entity
+//data class DbModel(
+//    @PrimaryKey
+//    val Id: String,
+//    val Message: String,
+//    // val Global: GlobSum,
+//    // val Countries: List<DbSummary>
+//)
+//
+//@Entity
+//data class GlobSum(
+//    @PrimaryKey
+//    val DbModelId: String,
+//    val NewConfirmed: Int,
+//    val TotalConfirmed: Int,
+//    val NewDeaths: Int,
+//    val TotalDeaths: Int,
+//    val NewRecovered: Int,
+//    val TotalRecovered: Int,
+//    val Date: String
+//)
 
 @Entity
 data class DbSummary(
@@ -47,12 +47,12 @@ fun List<DbSummary>.asDomainModel(): List<DomainModel> {
     return map {
         DomainModel(
             Country = it.Country,
-            NewConfirmed = it.NewConfirmed,
-            TotalConfirmed = it.TotalConfirmed,
-            NewDeaths = it.NewDeaths,
-            TotalDeaths = it.TotalDeaths,
-            NewRecovered = it.NewRecovered,
-            TotalRecovered = it.TotalRecovered,
+            NewConfirmed = it.NewConfirmed.toString(),
+            TotalConfirmed = it.TotalConfirmed.toString(),
+            NewDeaths = it.NewDeaths.toString(),
+            TotalDeaths = it.TotalDeaths.toString(),
+            NewRecovered = it.NewRecovered.toString(),
+            TotalRecovered = it.TotalRecovered.toString(),
             Date = it.Date
         )
     }

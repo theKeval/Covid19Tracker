@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,7 +30,7 @@ class HomeFragment: Fragment() {
         ViewModelProvider(this, HomeViewModel.Factory(activity.application)).get(HomeViewModel::class.java)
     }
 
-    private lateinit var summaryAdapter: CovidSummaryAdapter
+    private var summaryAdapter: CovidSummaryAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,7 +59,11 @@ class HomeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        
+        viewmodel.summaries.observe(viewLifecycleOwner, Observer { summaries ->
+            summaries.apply {
+                summaryAdapter?.summaries = summaries
+            }
+        })
     }
 
 
