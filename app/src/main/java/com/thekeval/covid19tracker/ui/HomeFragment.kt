@@ -44,7 +44,7 @@ class HomeFragment: Fragment() {
         binding.viewmodel = viewmodel
 
         summaryAdapter = CovidSummaryAdapter(SummaryClicked {
-            Toast.makeText(context, "Incoming feature..", Toast.LENGTH_LONG)
+            Toast.makeText(context, "Incoming feature..", Toast.LENGTH_LONG).show()
         })
 
         binding.summaryList.apply {
